@@ -39,7 +39,7 @@
       <small>Ejemplo: +99 123 456 789</small>
 
       <button type="submit" class="btn btn-green">
-        Enviar solicitud por WhatsApp
+        Enviar solicitud
       </button>
     </form>
   </div>
@@ -172,18 +172,18 @@ async function enviarFormulario(e){
 
   // luego enviar WhatsApp
 
-  const numeroWhatsApp="13479579179";
+  //const numeroWhatsApp="13479579179";
 
-  const mensaje=
-`Solicitud de Voluntariado – Proyecto Génesis
-Nombre: ${nombre}
-Apellido: ${apellido}
-Correo: ${correo}
-Teléfono: ${telefono}`;
+  //const mensaje=
+//`Solicitud de Voluntariado – Proyecto Génesis
+//Nombre: ${nombre}
+//Apellido: ${apellido}
+//Correo: ${correo}
+//Teléfono: ${telefono}`;
 
-  const url=`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+  //const url=`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
-  window.open(url,"_blank");
+  //window.open(url,"_blank");
 
 }
 </script>
