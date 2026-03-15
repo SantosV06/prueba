@@ -1,38 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin Login</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="icon" type="image/png" href="../assets/img/ServiTec.png">
+<meta charset="UTF-8">
+<title>Login admin</title>
 </head>
-
 <body>
 
-<header>
-<h1>Admin ServiTec</h1>
-</header>
+<h2>Panel admin</h2>
 
-<section>
+<input type="password" id="pass">
+<button onclick="login()">Entrar</button>
 
-<div class="box">
+<script>
 
-<form id="login" class="solicitud-box">
+async function login(){
 
-<label>Contraseña</label>
-<input type="password" name="password" required>
+  const password=document.getElementById("pass").value;
 
-<button type="submit">Entrar</button>
+  const r = await fetch("/api/login",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({password})
+  });
 
-</form>
+  if(r.ok){
 
-</div>
+    sessionStorage.setItem("admin","1");
 
-</section>
+    window.location="/admin/admin.html";
 
-<script src="../assets/js/app.js" defer></script>
+  }else{
+
+    alert("Contraseña incorrecta");
+
+  }
+
+}
+
+</script>
 
 </body>
-
 </html>
