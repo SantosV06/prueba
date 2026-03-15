@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>Panel Admin | Fundación VNE</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../assets/img/LogoFundaciónVNE1.png">
+
+<link rel="stylesheet" href="../assets/css/main.css">
+
 </head>
-<body>
 
-<h2>Voluntarios</h2>
 
-<table border="1" id="tabla">
+<body class="genesis-voluntariado">
+
+<header>
+
+<div class="top-left" onclick="logout()">🔒</div>
+
+<a class="top-right" href="../index.html">←</a>
+
+<h1>Panel de administración</h1>
+
+<p>
+Solicitudes de voluntariado registradas en la base de datos.
+</p>
+
+</header>
+
+
+
+<section>
+
+<div class="box">
+
+<table class="tabla-admin" id="tabla">
+
 <tr>
 <th>ID</th>
 <th>Nombre</th>
@@ -17,13 +46,128 @@
 <th>Telefono</th>
 <th>Fecha</th>
 </tr>
+
 </table>
 
+</div>
+
+</section>
+
+
+
+<footer class="footer-vne-exact">
+  <div class="footer-inner">
+
+    <!-- COLUMNA 1 -->
+    <div class="footer-col">
+      <h2>Información de contacto</h2>
+
+      <p class="label">Números de teléfono</p>
+      <p>
+        <strong>administración y atención al cliente</strong><br>
+        Teléfono / WhatsApp: +1 (917) 597 9179
+      </p>
+
+      <p>
+        <strong>Oficina ejecutiva / Dirección general</strong><br>
+        Teléfono: +1 (347) 819 9521
+      </p>
+
+      <p class="label">Correo electrónico</p>
+      <p><strong>Consultas generales y administrativas</strong></p><br>
+      <p>info@foundationvne.com</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/foundation.vne" target="_blank" aria-label="Instagram">
+          <img src="../assets/img/INSTAGRAM ICONO AZUL.png" alt="">
+        </a>
+        <span><img src="../assets/img/ICONO WHATSAPP AZUL.png" alt="WhatsApp"></span>
+        <span><img src="../assets/img/ICONO FACEBOOK AZUL.png" alt="Facebook"></span>
+        <span><img src="../assets/img/XXX AZUL ICONO.png" alt="X"></span>
+        <a href="../donaciones/index.html" aria-label="Zelle">
+         <img src="../assets/img/ZELLE ICONO AZUL.png" alt="">
+        </a>
+      </div>
+    </div>
+
+    <!-- COLUMNA 2 -->
+    <div class="footer-col">
+      <h2>Sobre nosotros</h2>
+
+      <p>
+        Fundación Venezuela Nueva Esperanza LLC<br>
+        LLC con propósito social<br>
+        Registrada en el Estado de Nueva York – 2022
+      </p>
+
+      <p>
+        Address: 433 Sackett St, Brooklyn, NY 11231<br>
+        New York, NY, Estados Unidos<br>
+        EIN: 93-4222627
+      </p>
+
+      <h2 class="mt">Horario de atención</h2>
+      <p>
+        Lunes a viernes<br>
+        8:00 a.m. – 5:00 p.m.<br>
+        Fines de semana con cita previa
+      </p>
+    </div>
+
+    <!-- COLUMNA 3 -->
+    <div class="footer-col">
+      <h2>Asuntos legales y cumplimiento</h2>
+
+      <p class="small">
+        Fundación Venezuela Nueva Esperanza LLC opera de conformidad con las regulaciones<br>
+        federales y estatales aplicables. Todas sus actividades se llevan a cabo bajo esrándares<br>
+        internos de gobernanza, rendición de cuentas y transparencia.
+      </p>
+
+      <p class="links">
+        <a href="../politica_privacidad/index.html">Política de privacidad</a>|<a href="../terminos_condiciones/index.html">Términos y condiciones</a><br>
+        <a href="../politica_conflicto_intereses/index.html">Política de conflicto de intereses</a><br>
+        <a href="../politica_no_discriminacion/index.html">Política de no discriminación</a>
+      </p>
+      <div class="footer-logo">
+       <img src="../assets/img/LogoFundaciónVNE.png" alt="Foundation VNE">
+      </div>
+    </div>
+  </div>
+
+  <!-- FRANJA BLANCA INFERIOR -->
+  <div class="footer-bottom-exact">
+    © 2022–2026 Fundación Venezuela Nueva Esperanza LLC. Todos los derechos reservados.<br>
+    Este sitio web tiene fines meramente informativos y no constituye un compromiso legal ni financiero.
+  </div>
+</footer>
+
+
+
 <script>
+
+
+// 🔐 proteger panel
 
 if(sessionStorage.getItem("admin")!="1"){
   location="/admin/login.html";
 }
+
+
+
+// cerrar sesión
+
+function logout(){
+
+  sessionStorage.removeItem("admin");
+
+  location="/admin/login.html";
+
+}
+
+
+
+// cargar datos
 
 async function cargar(){
 
@@ -51,6 +195,7 @@ async function cargar(){
 }
 
 cargar();
+
 
 </script>
 
