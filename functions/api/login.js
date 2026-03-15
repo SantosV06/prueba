@@ -1,23 +1,23 @@
-export async function onRequestPost(context){
+export async function onRequestPost(context) {
 
-  const { request, env } = context
+  const { request, env } = context;
 
-  const body = await request.json()
-  const password = body.password
+  const data = await request.json();
 
-  if(password === env.ADMIN_PASSWORD){
+  const password = data.password;
 
-    return new Response(JSON.stringify({
-      ok:true,
-      token:"servitec-admin"
-    }),{
-      headers:{ "Content-Type":"application/json" }
-    })
+  if (password === env.ADMIN_PASSWORD) {
+
+    return new Response(
+      JSON.stringify({ ok: true }),
+      { headers: { "Content-Type": "application/json" } }
+    );
 
   }
 
-  return new Response(JSON.stringify({
-    ok:false
-  }),{status:401})
+  return new Response(
+    JSON.stringify({ ok: false }),
+    { status: 401 }
+  );
 
 }
